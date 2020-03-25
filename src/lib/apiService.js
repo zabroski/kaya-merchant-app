@@ -9,3 +9,15 @@ const axiosClient = axios.creare({
         'Authorization': `bearer ${JWT_TOKEN}`
     }
 })
+
+
+export const signUp = async (data) => {
+    try{
+        const response = await axiosClient.post('/auth/signup', data)
+        const { token,merchant } = response.data
+
+    } catch(e) {
+        throw e
+
+    }
+}
