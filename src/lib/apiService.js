@@ -1,23 +1,30 @@
 import axios from 'axios'
 
-const BASE_URL = process.env.API_URL || 'http://localhost:3001/'
+const BASE_URL = process.env.API_URL || "http://localhost:3001";
 
-const JWT_TOKEN = localStorage.GETITEM('TOKEN')
-const axiosClient = axios.creare({
+const JWT_TOKEN = localStorage.getItem('token')
+const axiosClient = axios.create({
     baseURL: BASE_URL,
     headers: {
-        'Authorization': `bearer ${JWT_TOKEN}`
+        'Authorization': `Bearer ${JWT_TOKEN}`
+
     }
 })
 
 
 export const signUp = async (data) => {
-    try{
+
+    try {
+        console.log('RIGHT HERERRE',data)
         const response = await axiosClient.post('/auth/signup', data)
-        const { token,merchant } = response.data
+       
+        const { token, deliverer } = response.data
+       
+        localStorage.setItem('token', token)
+        return deliverer
+      
 
     } catch(e) {
         throw e
-
     }
-}
+};

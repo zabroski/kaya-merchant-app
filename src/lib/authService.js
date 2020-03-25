@@ -8,3 +8,6 @@ const authService = {
         localStorage.removeItem('token')
     }
 }
+
+
+export default authService
