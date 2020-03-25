@@ -28,3 +28,28 @@ export const signUp = async (data) => {
         throw e
     }
 };
+
+
+export const login = async (data) => {
+    try {
+        const response = await axiosClient.post('/auth/login', data)
+        const { token, merchant } = response.data
+
+        await localStorage.setItem('token', token)
+        return merchant
+
+    } catch(e) {
+        throw e
+    }
+}
+
+
+export const createDelivery = async (delivererId) => {
+    try {
+        const response = await axiosClient.post(`create-delivery/${delivererId}`);
+        return response.data
+
+    }catch(e) {
+        throw e
+    }
+}
