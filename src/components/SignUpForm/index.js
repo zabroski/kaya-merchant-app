@@ -36,6 +36,7 @@ const SignUpForm = () => {
     });
 
     const [isSignedUp, setIsSignedUp] = useState(false);
+    console.log(form)
     
     if (isSignedUp) {
         return <Redirect to="/login" />

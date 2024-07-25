@@ -1,4 +1,4 @@
-import  React  from 'react';
+  import  React  from 'react';
 import {Route, Link} from "react-router-dom";
 import  ProtectedRoute from './components/ProtectedRoute';
 import DashboardPage from './components/DashboardPage';
@@ -12,7 +12,7 @@ class App extends React.Component {
 
     super(props)
     this.state = {
-      isSigneIn: false,
+      isSigneIn: true,
       merchant: {}
     }
 
